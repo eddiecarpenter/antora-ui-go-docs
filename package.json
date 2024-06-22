@@ -20,7 +20,7 @@
     "@fortawesome/free-solid-svg-icons": "~5.15",
     "@fortawesome/free-regular-svg-icons": "~5.15",
     "@asciidoctor/core": "~2.2",
-    "@fontsource/open-sans": "^5.0.3",
+    "@fontsource/open-sans": "^5.0.28",
     "@fontsource/roboto-mono": "~5.0",
     "autoprefixer": "~9.7",
     "browser-pack-flat": "~3.5",
