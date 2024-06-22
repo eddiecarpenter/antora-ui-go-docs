@@ -1,0 +1,31 @@
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{{{or site.url siteRootPath}}}"><img src="{{uiRootPath}}/img/go-white.svg" alt="{{site.title}}" height="30"></a>
+        <a class="navbar-item" href="{{or site.url (or siteRootUrl siteRootPath)}}">Docs</a>
+      {{#if env.ALGOLIA_API_KEY}}
+        <div class="navbar-item hide-for-print">
+          <input id="search-input" type="text" placeholder="Search docs">
+        </div>
+      {{/if}}
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://docs.go.co.nz/get-started">Get Started</a>
+              <a class="navbar-item" href="https://docs.go.co.nz/guides">Guides</a>
+              <a class="navbar-item" href="https://docs.go.co.nz/training">Training</a>
+              <a class="navbar-item" href="https://docs.go.co.nz">Tutorials</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </nav>
+</header>
