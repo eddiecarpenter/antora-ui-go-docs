@@ -16,7 +16,7 @@
   "devDependencies": {
     "@fortawesome/fontawesome-free": "~5.15",
     "@fortawesome/fontawesome-svg-core": "~1.2",
-    "@fortawesome/free-brands-svg-icons": "~5.15",
+    "@fortawesome/free-brands-svg-icons": "~6.5",
     "@fortawesome/free-solid-svg-icons": "~5.15",
     "@fortawesome/free-regular-svg-icons": "~5.15",
     "@asciidoctor/core": "~2.2",
