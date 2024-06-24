@@ -10,6 +10,10 @@
   "engines": {
     "node": ">= 8.0.0"
   },
+  "scripts":{
+    "build": "SITE_SEARCH_PROVIDER=lunr gulp build",
+    "preview": "gulp preview"
+  },
   "browserslist": [
     "last 2 versions"
   ],
