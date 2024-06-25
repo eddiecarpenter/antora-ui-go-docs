@@ -10,22 +10,22 @@
   "engines": {
     "node": ">= 8.0.0"
   },
-  "scripts":{
-    "build": "SITE_SEARCH_PROVIDER=lunr gulp build",
+  "scripts": {
+    "build": "SITE_SEARCH_PROVIDER=lunr gulp bundle",
     "preview": "gulp preview"
   },
   "browserslist": [
     "last 2 versions"
   ],
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "~5.15",
-    "@fortawesome/fontawesome-svg-core": "~1.2",
-    "@fortawesome/free-brands-svg-icons": "~5.15",
-    "@fortawesome/free-solid-svg-icons": "~5.15",
-    "@fortawesome/free-regular-svg-icons": "~5.15",
     "@asciidoctor/core": "~2.2",
     "@fontsource/open-sans": "^5.0.3",
     "@fontsource/roboto-mono": "~5.0",
+    "@fortawesome/fontawesome-free": "~5.15",
+    "@fortawesome/fontawesome-svg-core": "~1.2",
+    "@fortawesome/free-brands-svg-icons": "~5.15",
+    "@fortawesome/free-regular-svg-icons": "~5.15",
+    "@fortawesome/free-solid-svg-icons": "~5.15",
     "autoprefixer": "~9.7",
     "browser-pack-flat": "~3.5",
     "browserify": "~17.0",
