@@ -19,8 +19,6 @@
 :url-nvm-install: {url-nvm}#installation
 :url-source-maps: https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map
 
-image:{img-ci-status}[CI Status (GitHub Actions), link={url-ci-pipelines}]
-
 This project generates the UI bundle for the Go-Docs {url-antora}[Antora] documentation site.
 You can see the UI at {url-preview}. It is based on the https://gitlab.com/antora/antora-ui-default[Antora Default UI].
 
