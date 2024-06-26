@@ -17,6 +17,7 @@
   hljs.registerLanguage('java', require('highlight.js/lib/languages/java'))
   hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'))
   hljs.registerLanguage('json', require('highlight.js/lib/languages/json'))
+  hljs.registerLanguage('julia', require('highlight.js/lib/languages/julia'))
   hljs.registerLanguage('kotlin', require('highlight.js/lib/languages/kotlin'))
   hljs.registerLanguage('lua', require('highlight.js/lib/languages/lua'))
   hljs.registerLanguage('markdown', require('highlight.js/lib/languages/markdown'))
@@ -36,7 +37,7 @@
   hljs.registerLanguage('swift', require('highlight.js/lib/languages/swift'))
   hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'))
   hljs.registerLanguage('yaml', require('highlight.js/lib/languages/yaml'))
-  ;[].slice.call(document.querySelectorAll('pre code.hljs')).forEach(function (node) {
+  ;[].slice.call(document.querySelectorAll('pre code.hljs[data-lang]')).forEach(function (node) {
     hljs.highlightBlock(node)
   })
 })()

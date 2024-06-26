@@ -1,14 +1,15 @@
-= Go Docs Preview Page
+= Hardware and Software Requirements
 Author Name
 :idprefix:
 :idseparator: -
 :!example-caption:
 :!table-caption:
+//:page-role: -toc
 :page-pagination:
 
 [.float-group]
 --
-image:icon-standards.svg[Community love,180,135,float=right,role=float-gap]
+image:multirepo-ssg.svg[Multirepo SSG,180,135,float=right,role=float-gap]
 Platonem complectitur mediocritatem ea eos.
 Ei nonumy deseruisse ius.
 Mel id omnes verear.
@@ -28,10 +29,9 @@ Nominavi luptatum eos, an vim hinc philosophia intellegebat.
 Lorem pertinacia `expetenda` et nec, [.underline]#wisi# illud [.line-through]#sonet# qui ea.
 H~2~0.
 E = mc^2^.
+*Alphabet* *алфавит* _алфавит_ *_алфавит_*.
 Eum an doctus <<liber-recusabo,maiestatis efficiantur>>.
 Eu mea inani iriure.footnote:[Quisque porta facilisis tortor, vitae bibendum velit fringilla vitae! Lorem ipsum dolor sit amet, consectetur adipiscing elit.]
-
-And here is a lock icon icon:lock[title=Looks like a lock] and a heart icon icon:heart[title=Looks like a heart] and an exclamation icon:question-circle[title=title] (the icons should be before this text). Any icons used need to be explicitly loaded in the `src/js/vendor/fontawesome-icon-defs.js` file.
 
 [,json]
 ----
@@ -166,6 +166,9 @@ No sea, at invenire voluptaria mnesarchum has.
 Ex nam suas nemore dignissim, vel apeirian democritum et.
 At ornatus splendide sed, phaedrum omittantur usu an, vix an noster voluptatibus.
 
+---
+
+.Ordered list with customized numeration
 [upperalpha]
 . potenti donec cubilia tincidunt
 . etiam pulvinar inceptos velit quisque aptent himenaeos
@@ -174,6 +177,7 @@ At ornatus splendide sed, phaedrum omittantur usu an, vix an noster voluptatibus
 Natum facilisis theophrastus an duo.
 No sea, at invenire voluptaria mnesarchum has.
 
+.Unordered list with customized marker
 [square]
 * ultricies sociosqu tristique integer
 * lacus volutpat semper porttitor aliquet ornare primis nulla enim
@@ -181,6 +185,13 @@ No sea, at invenire voluptaria mnesarchum has.
 
 Eu sed antiopam gloriatur.
 Ea mea agam graeci philosophia.
+
+[circle]
+* circles
+** circles
+*** and more circles!
+
+At ornatus splendide sed, phaedrum omittantur usu an, vix an noster voluptatibus.
 
 * [ ] todo
 * [x] done!
@@ -191,6 +202,7 @@ sed::
 splendide sed
 
 mea::
+tad::
 agam graeci
 
 Let's look at that another way.
@@ -229,31 +241,6 @@ At ornatus splendide sed.
 
 h|Total
 |6
-|===
-
-.Stripes odd
-[#dependencies%autowidth,stripes=odd]
-|===
-|Library |Version
-
-|eslint
-|^1.7.3
-
-|eslint-config-gulp
-|^2.0.0
-
-|expect
-|^1.20.2
-
-|istanbul
-|^0.4.3
-
-|istanbul-coveralls
-|^1.0.3
-
-|jscs
-|^2.3.5
-
 |===
 
 Cum dicat putant ne.
@@ -299,7 +286,11 @@ Don't forget this step!
 ====
 If you installed the CLI and the default site generator globally, you can upgrade both of them with the same command.
 
- $ npm i -g @antora/cli @antora/site-generator-default
+ $ npm i -g @antora/cli @antora/site-generator
+
+Or you can install the metapackage to upgrade both packages at once.
+
+ $ npm i -g antora
 ====
 
 Nominavi luptatum eos, an vim hinc philosophia intellegebat.
@@ -308,12 +299,23 @@ Eu mea inani iriure.
 [discrete]
 == Voluptua singulis
 
+[discrete]
+=== Nominavi luptatum
+
 Cum dicat putant ne.
 Est in reque homero principes, meis deleniti mediocrem ad has.
 Ex nam suas nemore dignissim, vel apeirian democritum et.
 
 .Antora is a multi-repo documentation site generator
-image::icon-standards.svg[Lovely people,3000,opts=interactive]
+image::multirepo-ssg.svg[Multirepo SSG,3000,opts=interactive]
+
+.Let's see that again, but a little smaller
+image::multirepo-ssg.svg[Multirepo SSG,300,role=text-left]
+
+Make the switch today!
+
+.Full Circle with Jake Blauvelt
+video::300817511[vimeo,640,360,align=left]
 
 [#english+中文]
 == English + 中文

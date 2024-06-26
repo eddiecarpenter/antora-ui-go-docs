@@ -1,4 +1,4 @@
-@import "typeface-open-sans.css";
+@import "typeface-roboto.css";
 @import "typeface-roboto-mono.css";
 @import "vars.css";
 @import "base.css";
@@ -15,4 +15,3 @@
 @import "footer.css";
 @import "highlight.css";
 @import "print.css";
-@import "site-extra.css";

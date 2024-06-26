@@ -1,14 +1,16 @@
-<header class="header" role="banner">
+<header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-        <a class="navbar-item" href="{{{or site.url siteRootPath}}}"><img src="{{uiRootPath}}/img/go-white.svg" alt="{{site.title}}" height="30"></a>
-        <a class="navbar-item" href="{{or site.url (or siteRootUrl siteRootPath)}}">Docs</a>
-      {{#if env.ALGOLIA_API_KEY}}
-        <div class="navbar-item hide-for-print">
-          <input id="search-input" type="text" placeholder="Search docs">
+      <a class="navbar-item" href="{{{or site.url siteRootPath}}}"><img src="{{uiRootPath}}/img/go-white.svg" alt="{{site.title}}" height="30"></a>
+      {{#if env.SITE_SEARCH_PROVIDER}}
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="navbar-search-field">
+          <img class="navbar-search-icon" src="{{uiRootPath}}/img/search.svg" alt="?">
+          <input id="search-input" class="navbar-search-input" type="text" placeholder="Search the docs"{{#if page.home}} autofocus{{/if}}>
         </div>
+      </div>
       {{/if}}
-      <button class="navbar-burger" data-target="topbar-nav">
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
         <span></span>
         <span></span>
         <span></span>
@@ -16,16 +18,27 @@
     </div>
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <div class="navbar-link">Learn</div>
-            <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://docs.go.co.nz/get-started">Get Started</a>
-              <a class="navbar-item" href="https://docs.go.co.nz/guides">Guides</a>
-              <a class="navbar-item" href="https://docs.go.co.nz/training">Training</a>
-              <a class="navbar-item" href="https://docs.go.co.nz">Tutorials</a>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <div class="navbar-link">Learn</div>
+              <div class="navbar-dropdown">
+                <a class="navbar-item" href="https://docs.go.co.nz/get-started">Get Started</a>
+                <a class="navbar-item" href="https://docs.go.co.nz/guides">Guides</a>
+                <a class="navbar-item" href="https://docs.go.co.nz/training">Training</a>
+                <a class="navbar-item" href="https://docs.go.co.nz">Tutorials</a>
+              </div>
             </div>
           </div>
       </div>
-    </div>
+        <button type="button" id="themeSwitch" class="navbar-themeSwitch">
+          <span class="dark:hidden" >
+            <img class="navbar-theme-icon"  src="{{uiRootPath}}/img/light-mode.svg" alt="?">
+          </span>
+          <span class="hidden dark:inline">
+            <img class="navbar-theme-icon" src="{{uiRootPath}}/img/dark-mode.svg" alt="?">
+          </span>
+        </button>
+      </div>
   </nav>
 </header>
