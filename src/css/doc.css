@@ -8,6 +8,10 @@
   padding: 0 1rem 4rem;
 }
 
+.dark .doc {
+  color: var(--doc-font-color-dark);
+}
+
 @media screen and (min-width: 1024px) {
   .doc {
     flex: auto;
@@ -29,6 +33,16 @@
   hyphens: none;
   line-height: 1.3;
   margin: 1rem 0 0;
+}
+
+.dark .doc h1,
+.dark .doc h2,
+.dark .doc h3,
+.dark .doc h4,
+.dark .doc h5,
+.dark .doc h6 {
+  color: var(--heading-font-color-dark);
+  font-weight: var(--heading-font-weight-dark);
 }
 
 .doc > h1.page:first-child {
@@ -131,8 +145,7 @@
 
 .doc i.fa {
   hyphens: none;
-  display: inline-block;
-  width: 1em;
+  font-style: normal;
 }
 
 .doc p code,
@@ -186,8 +199,32 @@
   clear: both;
 }
 
+.doc .text-left {
+  text-align: left;
+}
+
+.doc .text-center {
+  text-align: center;
+}
+
+.doc .text-right {
+  text-align: right;
+}
+
+.doc .text-justify {
+  text-align: justify;
+}
+
 .doc .stretch {
   width: 100%;
+}
+
+.doc .big {
+  font-size: larger;
+}
+
+.doc .small {
+  font-size: smaller;
 }
 
 .doc .underline {
@@ -207,6 +244,7 @@
 .doc .imageblock,
 .doc .listingblock,
 .doc .literalblock,
+.doc .tabs,
 .doc .sidebarblock,
 .doc .verseblock,
 .doc .videoblock,
@@ -217,18 +255,29 @@
   margin: 1rem 0 0;
 }
 
-.doc table.tableblock {
-  font-size: calc(15 / var(--rem-base) * 1rem);
-  margin: 1.5rem 0 0;
-  word-break: break-word;
+.doc > table.tableblock,
+.doc > table.tableblock + *,
+.doc .tablecontainer,
+.doc .tablecontainer + *,
+.doc :not(.tablecontainer) > table.tableblock,
+.doc :not(.tablecontainer) > table.tableblock + * {
+  margin-top: 1.5rem;
 }
 
-.doc table.tableblock + * {
-  margin-top: 1.5rem;
+.doc table.tableblock {
+  font-size: calc(15 / var(--rem-base) * 1rem);
 }
 
 .doc p.tableblock + p.tableblock {
   margin-top: 0.5rem;
+}
+
+.doc table.tableblock pre {
+  font-size: inherit;
+}
+
+.doc td.tableblock > .content {
+  word-wrap: anywhere; /* aka overflow-wrap; used when hyphens are disabled or aren't sufficient */
 }
 
 .doc td.tableblock > .content > :first-child {
@@ -255,6 +304,11 @@
 
 .doc table.grid-rows > * > tr > * {
   border-width: 1px 0;
+}
+
+.doc table.grid-all > thead th,
+.doc table.grid-rows > thead th {
+  border-bottom-width: 2.5px;
 }
 
 .doc table.frame-all {
@@ -296,8 +350,19 @@
   background: var(--table-stripe-background);
 }
 
+.dark .doc table.stripes-all > tbody > tr,
+.dark .doc table.stripes-odd > tbody > tr:nth-of-type(odd),
+.dark .doc table.stripes-even > tbody > tr:nth-of-type(even),
+.dark .doc table.stripes-hover > tbody > tr:hover {
+  background: var(--table-stripe-background-dark);
+}
+
 .doc table.tableblock > tfoot {
   background: var(--table-footer-background);
+}
+
+.dark .doc table.tableblock > tfoot {
+  background: var(--table-footer-background-dark);
 }
 
 .doc .halign-left {
@@ -338,7 +403,7 @@
   margin-top: 0;
 }
 
-.doc .admonitionblock pre {
+.doc .admonitionblock td.content pre {
   font-size: calc(15 / var(--rem-base) * 1rem);
 }
 
@@ -353,73 +418,64 @@
   background: var(--admonition-background);
   width: 100%;
   word-wrap: anywhere;
+  border-radius: 6px;
+}
+
+.dark .doc .admonitionblock td.content {
+  background: var(--admonition-background-dark);
 }
 
 .doc .admonitionblock td.icon {
+  font-size: calc(15 / var(--rem-base) * 1rem);
+  left: 0;
+  line-height: 1;
+  padding: 0;
   position: absolute;
   top: 0;
-  left: 0;
-  font-size: calc(15 / var(--rem-base) * 1rem);
-  padding: 0 0.5rem;
-  height: 1.25rem;
-  line-height: 1;
-  font-weight: var(--admonition-label-font-weight);
-  text-transform: uppercase;
-  border-radius: 0.45rem;
   transform: translate(-0.5rem, -50%);
 }
 
 .doc .admonitionblock td.icon i {
-  display: inline-flex;
   align-items: center;
-  width: auto;
-  height: 100%;
+  border-radius: 0.45rem;
+  display: inline-flex;
+  filter: initial;
+  height: 1.25rem;
+  padding: 0 0.5rem;
+  vertical-align: initial;
+  width: fit-content;
 }
 
-.doc .admonitionblock td.icon i:empty::before,
-.doc .admonitionblock td.icon .svga {
-  content: "";
-  height: inherit;
-  width: 1.5rem;
-  margin: 0 0.25rem 0 -0.5rem;
-  border-radius: 0.45rem 0 0 0.45rem;
-  padding: 0.2em 0.2em 0.3em 0.3em;
-  background-color: rgba(0, 0, 0, 0.2);
+.doc .admonitionblock td.icon i::after {
+  content: attr(title);
+  font-weight: var(--admonition-label-font-weight);
+  font-style: normal;
+  text-transform: uppercase;
 }
 
-.doc .admonitionblock.caution td.icon {
+.doc .admonitionblock td.icon i.icon-caution {
   background-color: var(--caution-color);
   color: var(--caution-on-color);
 }
 
-.doc .admonitionblock.important td.icon {
+.doc .admonitionblock td.icon i.icon-important {
   background-color: var(--important-color);
   color: var(--important-on-color);
 }
 
-.doc .admonitionblock.note td.icon {
+.doc .admonitionblock td.icon i.icon-note {
   background-color: var(--note-color);
   color: var(--note-on-color);
 }
 
-.doc .admonitionblock.tip td.icon {
+.doc .admonitionblock td.icon i.icon-tip {
   background-color: var(--tip-color);
   color: var(--tip-on-color);
 }
 
-.doc .admonitionblock.warning .icon {
+.doc .admonitionblock td.icon i.icon-warning {
   background-color: var(--warning-color);
   color: var(--warning-on-color);
-}
-
-.doc .admonitionblock .icon i {
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-}
-
-.doc .admonitionblock .icon i::after {
-  content: attr(title);
 }
 
 .doc .imageblock,
@@ -429,14 +485,27 @@
   align-items: center;
 }
 
+.doc .imageblock .content {
+  align-self: stretch;
+  text-align: center;
+}
+
 .doc .imageblock.text-left,
 .doc .videoblock.text-left {
   align-items: flex-start;
 }
 
+.doc .imageblock.text-left .content {
+  text-align: left;
+}
+
 .doc .imageblock.text-right,
 .doc .videoblock.text-right {
   align-items: flex-end;
+}
+
+.doc .imageblock.text-right .content {
+  text-align: right;
 }
 
 .doc .imageblock img,
@@ -455,7 +524,8 @@
   margin-top: -0.2em;
 }
 
-.doc .videoblock iframe {
+.doc .videoblock iframe,
+.doc .videoblock video {
   max-width: 100%;
   vertical-align: middle;
 }
@@ -534,15 +604,21 @@
 }
 
 .doc ul.circle {
-  list-style-type: square;
+  list-style-type: circle;
 }
 
 .doc ul.disc {
-  list-style-type: square;
+  list-style-type: disc;
 }
 
 .doc ul.square {
   list-style-type: square;
+}
+
+.doc ul.circle ul:not([class]),
+.doc ul.disc ul:not([class]),
+.doc ul.square ul:not([class]) {
+  list-style: inherit;
 }
 
 .doc ol.arabic {
@@ -574,15 +650,23 @@
 }
 
 .doc ul.checklist {
-  padding-left: 0.5rem;
+  padding-left: 1.75rem;
 }
 
-.doc ul.checklist p > .fa-check-square-o:first-child,
-.doc ul.checklist p > .fa-square-o:first-child,
-.doc ul.checklist p > :first-child .svga.fa-check-square,
-.doc ul.checklist p > :first-child .svga.fa-square {
-  display: inline-block;
+.doc ul.checklist p > i.fa-check-square-o:first-child,
+.doc ul.checklist p > i.fa-square-o:first-child {
+  display: inline-flex;
+  justify-content: center;
   width: 1.25rem;
+  margin-left: -1.25rem;
+}
+
+.doc ul.checklist i.fa-check-square-o::before {
+  content: "\2713";
+}
+
+.doc ul.checklist i.fa-square-o::before {
+  content: "\274f";
 }
 
 .doc .dlist .dlist,
@@ -615,18 +699,41 @@
 .doc .listingblock .title,
 .doc .openblock .title,
 .doc .videoblock .title,
-.doc .tableblock caption {
+.doc table.tableblock caption {
   color: var(--caption-font-color);
   font-size: calc(16 / var(--rem-base) * 1rem);
+  font-style: var(--caption-font-style);
   font-weight: var(--caption-font-weight);
-  font-style: italic;
   hyphens: none;
   letter-spacing: 0.01em;
   padding-bottom: 0.075rem;
+}
+
+.dark .doc .admonitionblock .title,
+.dark .doc .exampleblock .title,
+.dark .doc .imageblock .title,
+.dark .doc .literalblock .title,
+.dark .doc .listingblock .title,
+.dark .doc .openblock .title,
+.dark .doc .videoblock .title,
+.dark .doc table.tableblock caption {
+  color: var(--caption-font-color-dark);
+  font-weight: var(--caption-font-weight-dark);
+}
+
+.doc table.tableblock caption {
   text-align: left;
 }
 
-.doc .imageblock .title {
+.doc .olist .title,
+.doc .ulist .title {
+  font-style: var(--caption-font-style);
+  font-weight: var(--caption-font-weight);
+  margin-bottom: 0.25rem;
+}
+
+.doc .imageblock .title,
+.doc .videoblock .title {
   margin-top: 0.5rem;
   padding-bottom: 0;
 }
@@ -694,6 +801,14 @@
   padding: 0.75rem;
 }
 
+.dark .doc .exampleblock > .content,
+.dark .doc details.result > .content {
+  background: var(--example-background-dark);
+  border: 0.25rem solid var(--example-border-color-dark);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
 .doc .exampleblock > .content::after,
 .doc details.result > .content::after {
   content: "";
@@ -712,35 +827,49 @@
   padding: 0.75rem 1.5rem;
 }
 
+.dark .doc .sidebarblock {
+  background: var(--sidebar-background-dark);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+}
+
 .doc .sidebarblock > .content > .title {
   font-size: calc(22.5 / var(--rem-base) * 1rem);
   font-weight: var(--alt-heading-font-weight);
   line-height: 1.3;
-  margin-bottom: -0.3em;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
+.doc .sidebarblock > .content > .title + *,
 .doc .sidebarblock > .content > :not(.title):first-child {
   margin-top: 0;
 }
 
 /* NEEDS REVIEW prevent pre in table from causing article to exceed bounds */
-.doc .tableblock pre,
+.doc table.tableblock pre,
 .doc .listingblock.wrap pre {
   white-space: pre-wrap;
 }
 
-.doc pre.highlight code,
+.doc pre.highlight > code,
 .doc .listingblock pre:not(.highlight),
 .doc .literalblock pre {
   background: var(--pre-background);
   box-shadow: inset 0 0 1.75px var(--pre-border-color);
   display: block;
   overflow-x: auto;
-  padding: 0.75rem;
+  padding: 0.875em;
 }
 
-.doc pre.highlight {
+.dark .doc pre.highlight > code,
+.dark .doc .listingblock pre:not(.highlight),
+.dark .doc .literalblock pre {
+  background: var(--pre-background-dark);
+  box-shadow: inset 0 0 1.75px var(--pre-border-color-dark);
+}
+
+.doc .listingblock > .content {
   position: relative;
 }
 
@@ -752,8 +881,11 @@
   right: 0.5rem;
   color: var(--pre-annotation-font-color);
   font-family: var(--body-font-family);
-  font-size: calc(13.5 / var(--rem-base) * 1rem);
+  font-size: calc(13 / var(--rem-base) * 1rem);
   line-height: 1;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 1;
 }
 
 .doc .listingblock:hover .source-toolbox {
@@ -763,8 +895,6 @@
 .doc .source-toolbox .source-lang {
   text-transform: uppercase;
   letter-spacing: 0.075em;
-  font-size: 0.96em;
-  line-height: 1.0425;
 }
 
 .doc .source-toolbox > :not(:last-child)::after {
@@ -777,7 +907,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: transparent;
+  background: none;
   border: none;
   color: inherit;
   outline: none;
@@ -814,7 +944,11 @@
   color: var(--color-white);
   cursor: auto;
   opacity: 0;
-  transition: opacity 0.5s ease 0.75s;
+  transition: opacity 0.5s ease 0.5s;
+}
+
+.dark .doc .source-toolbox .copy-toast {
+  background-color: var(--doc-font-color-dark);
 }
 
 .doc .source-toolbox .copy-toast::after {
@@ -843,11 +977,12 @@
 }
 
 .doc .dlist dd {
-  margin: 0 0 0.25rem 1.5rem;
+  margin: 0 0 0 1.5rem;
 }
 
-.doc .dlist dd:last-of-type {
-  margin-bottom: 0;
+.doc .dlist dd + dt,
+.doc .dlist dd > p:first-child {
+  margin-top: 0.5rem;
 }
 
 .doc td.hdlist1,
@@ -941,6 +1076,12 @@
   white-space: nowrap; /* effectively ignores hyphens setting */
 }
 
+.dark .doc kbd {
+  background: var(--kbd-background-dark);
+  border: 1px solid var(--kbd-border-color-dark);
+  box-shadow: 0 1px 0 var(--kbd-border-color-dark), 0 0 0 0.1em var(--body-background-dark) inset;
+}
+
 .doc kbd,
 .doc .keyseq {
   line-height: 1;
@@ -967,9 +1108,11 @@
   hyphens: none;
 }
 
-.doc .menuseq .caret {
-  display: inline-block;
-  width: 0.5em;
+.doc .menuseq i.caret::before {
+  content: "\203a";
+  font-size: 1.1em;
+  font-weight: var(--body-font-weight-bold);
+  line-height: calc(1 / 1.1);
 }
 
 .doc :not(pre).nowrap {
@@ -979,6 +1122,10 @@
 .doc .nobreak {
   hyphens: none;
   word-wrap: normal;
+}
+
+.doc :not(pre).pre-wrap {
+  white-space: pre-wrap;
 }
 
 #footnotes {

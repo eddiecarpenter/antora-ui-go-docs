@@ -11,19 +11,29 @@ html {
   scroll-behavior: smooth;
 }
 
+.article {
+  margin: 1px 0 1px 0;
+}
+
 @media screen and (min-width: 1024px) {
   html {
     font-size: var(--body-font-size--desktop);
   }
 }
 
-body {
+.body {
   background: var(--body-background);
   color: var(--body-font-color);
   font-family: var(--body-font-family);
   line-height: var(--body-line-height);
   margin: 0;
+  tab-size: 4;
   word-wrap: anywhere; /* aka overflow-wrap; used when hyphens are disabled or aren't sufficient */
+}
+
+.dark .body {
+  background: var(--body-background-dark);
+  color: var(--body-font-color-dark);
 }
 
 a {

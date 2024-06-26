@@ -4,6 +4,12 @@ footer.footer {
   font-size: calc(15 / var(--rem-base) * 1rem);
   line-height: var(--footer-line-height);
   padding: 1.5rem;
+  border-top: solid 1px var(--footer-background);
+}
+
+.dark footer.footer {
+  background-color: var(--footer-background-dark);
+  color: var(--footer-font-color-dark);
 }
 
 .footer p {
@@ -12,4 +18,8 @@ footer.footer {
 
 .footer a {
   color: var(--footer-link-font-color);
+}
+
+.dark .footer a {
+  color: var(--footer-link-font-color-dark);
 }

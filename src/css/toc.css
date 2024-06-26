@@ -2,6 +2,10 @@
   color: var(--toc-font-color);
 }
 
+.dark .toc-menu {
+  color: var(--toc-font-color-dark);
+}
+
 .toc.sidebar .toc-menu {
   margin-right: 0.75rem;
   position: sticky;
@@ -15,6 +19,10 @@
   line-height: 1.3;
   margin: 0 -0.5px;
   padding-bottom: 0.25rem;
+}
+
+.dark .toc .toc-menu h3 {
+  color: var(--toc-heading-font-color-dark);
 }
 
 .toc.sidebar .toc-menu h3 {
@@ -95,8 +103,4 @@
 
 .sidebar.toc .toc-menu a:focus {
   background: var(--panel-background);
-}
-
-.toc .toc-menu .is-hidden-toc {
-  display: none !important;
 }
